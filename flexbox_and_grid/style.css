@@ -1,0 +1,62 @@
+*
+{
+    box-sizing: border-box;
+}
+
+body
+{
+    margin: 0;
+    font-family: Helvetica, sans-serif;
+}
+
+.container
+{
+    max-width: 1000px;
+}
+
+.m-auto
+{
+    margin-inline: auto;
+}
+
+.d-flex
+{
+    display: flex;
+}
+
+.px-3
+{
+    padding: 1rem;
+}
+
+nav
+{
+    display: flex;
+    align-items: center;
+    min-height: 50px;
+    background-color: #a2cbb6;
+}
+
+nav div
+{
+    font-size: 20px;
+    color: #f3dba8;
+}
+
+nav .container
+{
+    flex-basis: 100%;
+    gap: 1rem;
+}
+
+nav .container div:nth-last-of-type(2)
+{
+    color: blue;
+    margin-right: auto;
+}
+
+nav .container div:last-of-type
+{
+    color: red;
+    margin-left: auto;
+}
