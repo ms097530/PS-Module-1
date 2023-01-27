@@ -50,14 +50,32 @@ nav .container
     flex-wrap: wrap;
 }
 
+/* nav .container div:nth-of-type(2)
+{
+    order: -1;
+} */
+
 nav .container div:nth-last-of-type(2)
 {
     color: blue;
-    margin-right: auto;
+    /* order: 1; */
+    /* margin-inline: auto; */
 }
 
 nav .container div:last-of-type
 {
     color: red;
     margin-left: auto;
+    /* order: 2; */
+}
+
+.nav-item
+{
+    transition: translate 200ms ease-in-out;
+    text-shadow: currentColor 0px 10px 10px;
+}
+
+.nav-item:hover
+{
+    translate: 0 3px;
 }
