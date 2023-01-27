@@ -47,6 +47,7 @@ nav .container
 {
     flex-basis: 100%;
     gap: 1rem;
+    flex-wrap: wrap;
 }
 
 nav .container div:nth-last-of-type(2)
