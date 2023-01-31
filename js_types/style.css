@@ -1,0 +1,12 @@
+body
+{
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+h1
+{
+    font-size: 48px;
+    color: white;
+    text-shadow: black 2px 2px, black -2px -2px;
+}
