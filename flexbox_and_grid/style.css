@@ -79,3 +79,8 @@ nav .container div:last-of-type
 {
     translate: 0 3px;
 }
+
+/* .three-cols
+{
+    column-count: 3;
+} */
