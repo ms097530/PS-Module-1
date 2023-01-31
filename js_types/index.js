@@ -20,3 +20,23 @@ function colorShift(e)
     if (i >= COLORS.length)
         i = 0
 }
+
+// --- PRIMITIVE TYPES ---
+let num = 13 // number
+let greeting = 'Hello World' // string
+let isGreen = false // boolean
+let test // undefined
+let blah = null // null
+
+// --- REFERENCE TYPES ---
+
+// Array
+let users = ['John', 'Amber', 'Dave', 'Louise']
+
+// Object
+let userDetails = {
+
+    firstName: 'John',
+    lastName: 'Wright',
+    age: 22
+}
