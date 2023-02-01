@@ -1,4 +1,4 @@
-console.log('----- LAB 4 -----')
+console.log('-------- LAB 4 --------')
 
 let number1 = 32;
 let number2 = 25;

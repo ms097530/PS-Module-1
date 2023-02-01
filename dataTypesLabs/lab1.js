@@ -1,4 +1,4 @@
-console.log('----- LAB 1 -----')
+console.log('-------- LAB 1 --------')
 
 console.log(typeof (15))
 // Prediction: number

@@ -1,4 +1,4 @@
-console.log('----- LAB 2 -----')
+console.log('-------- LAB 2 --------')
 
 // Uncomment the lines below to see examples of strings
 // console.log('A string can be written inside of single quotes.');

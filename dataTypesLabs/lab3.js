@@ -1,4 +1,4 @@
-console.log('----- LAB 3 -----')
+console.log('-------- LAB 3 --------')
 
 // Sum
 let num1 = 9029, num2 = 26
