@@ -19,9 +19,22 @@ when checking if a value is truthy, the expression inside will resolve; if the r
     }
 */
 
-let faveColor = 'green'
 
-if (faveColor === 'red')
 {
-    alert('I love red too!')
+    // LOCAL SCOPE - to this block
+    let faveColor = 'green'
+
+    if (faveColor === 'red')
+    {
+        alert('I love red too!')
+    }
+    else
+    {
+        alert('Sorry, I don\'t know that color.')
+    }
 }
+// looks for faveColor at GLOBAL SCOPE -- does not exist -> error
+// this throws exception -> code below will not run
+console.log(faveColor)
+
+console.log('I NEVER RUN')
