@@ -1,3 +1,5 @@
+console.log('-------- EXERCISE 1 --------')
+
 let age = prompt('How old are you?')
 
 if (+age >= 18)
