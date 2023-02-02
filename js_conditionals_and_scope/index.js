@@ -19,14 +19,39 @@ when checking if a value is truthy, the expression inside will resolve; if the r
     }
 */
 
+// two const variables declared with same name
+// different scopes so no conflict
+// log inside if: outputs 'world'
+// global log: outputs 'hello'
+
+// global
+const test = 'hello'
+
+if (test === 'hello')
+{
+    // local
+    const test = 'world'
+    console.log(test)
+}
+
+console.log(test)
 
 {
     // LOCAL SCOPE - to this block
     let faveColor = 'green'
+    let isAwake = true
 
     if (faveColor === 'red')
     {
         alert('I love red too!')
+    }
+    else if (faveColor === 'blue' && isAwake === true)
+    {
+        alert('BLUE')
+    }
+    else if (faveColor === 'green' || isAwake === false)
+    {
+        alert('...green')
     }
     else
     {
