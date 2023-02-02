@@ -71,7 +71,7 @@ console.log('%c---- Exercise 5 ----', 'color: yellow')
 // output
 // increment i
 
-for (let i = 1; i <= 20; ++i)
+for (let i = 1; i <= 20; i++)
 {
     // default primeString
     let primeString = 'prime'
@@ -85,7 +85,7 @@ for (let i = 1; i <= 20; ++i)
     let factors = []
 
     // loop stops once j hits 2, no need to check lower because all values are divisible by 1
-    for (let j = bound; j >= 2; --j)
+    for (let j = bound; j >= 2; j--)
     {
         // check if i is divided evenly by current value of j
         if (i % j === 0)
@@ -94,7 +94,7 @@ for (let i = 1; i <= 20; ++i)
             primeString = 'not prime'
 
             // IGNORE - put current factor into array 
-            factors.push((j))
+            factors.push(j)
         }
     }
     // IRRELEVANT TO LOOPS - just for output clarity
