@@ -9,6 +9,7 @@ for (let i = 1; i <= 20; i++)
 
     let factors = []
     // determine if i is prime
+    // starting at j = half of i, rounded down; continue until j is less than 2; decrement j after each run through the block
     for (let j = bound; j >= 2; j--)
     {
         if (i % j === 0)
