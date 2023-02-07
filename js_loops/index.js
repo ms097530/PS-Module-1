@@ -28,3 +28,11 @@ while (k < 10)
     console.log('k equals: ', k)
     ++k
 }
+
+/**
+* * GREEN TEXT
+* ! DO NOT
+* ? What's going on? 
+* TODO: ADD WHILE LOOP
+* @param first word is formatted to stand out (define param or something?)
+*/
