@@ -73,3 +73,16 @@ function getDevObject(name)
 }
 
 console.log(getDevObject('Mike', 'boxing', 'gaming', 'being sexy', 'being modest', 'everything else'))
+
+
+function addList(a, b, ...numbers)
+{
+    let sum = a + b
+
+    for (let i = 0; i < numbers.length; i++)
+    {
+        sum += numbers[i]
+    }
+    return sum
+}
+console.log(addList(1, 2, 3, 4, 5))
