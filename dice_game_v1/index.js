@@ -24,7 +24,7 @@ function rollDice(p1_Points = 0, computer_Points = 0, turnNumber = 1)
     let isTie = playerRoll === computerRoll
     let isPlayerWin = playerRoll > computerRoll
 
-    console.log(`%c------ TURN ${turnNumber} ------`, 'color: yellow;')
+    console.log(`%c------ TURN ${turnNumber} ------`, 'color: yellow; font-size: 1.2rem;')
     console.log(`You rolled ${playerRoll}`)
     console.log(`Your opponent rolled ${computerRoll}`)
 
