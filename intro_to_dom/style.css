@@ -1,0 +1,22 @@
+*
+{
+    box-sizing: border-box;
+}
+
+html,
+body
+{
+    margin: 0;
+}
+
+.selected
+{
+    background-color: green;
+    font-family: monospace;
+}
+
+.removed
+{
+    background-color: red;
+    font-family: monospace;
+}
