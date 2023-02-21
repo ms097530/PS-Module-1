@@ -31,3 +31,25 @@ for (el of lis)
 {
     console.log(el)
 }
+
+lis[0].classList.add('selected')
+
+// --------- trying to inject scripts ---------
+let newScriptNode = document.createElement('li')
+newScriptNode.innerHTML = 'hello' + '<script>function hacked(){alert("Hello HACKED")}</script>'
+
+// lis[1].innerHTML += '<script>console.log("Hello HACKED")</script>'
+// lis[1].parentNode.replaceChild(newScriptNode, lis[1])
+lis[0].parentNode.appendChild(newScriptNode)
+
+let script = document.createElement('script')
+script.innerHTML = 'alert("AHHH")'
+// lis[0].parentNode.appendChild(script)
+
+// ----------------------------------------------
+
+let ulLis = document.querySelectorAll('ul > li')
+console.log(ulLis)
+
+let ulLisArr = Array.from(ulLis)
+console.log(ulLisArr)
