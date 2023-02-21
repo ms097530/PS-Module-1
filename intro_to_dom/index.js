@@ -1,7 +1,9 @@
+// get title by ID
 const titleEl = document.getElementById('title')
 titleEl.style.color = 'green'
 console.log(titleEl)
 
+// styles with JS
 const h2 = document.querySelector('h2')
 h2.style.textDecoration = 'line-through'
 h2.style.textDecorationThickness = '3px'
@@ -10,12 +12,14 @@ h2.style.textShadow = '0px 20px red, 0px -20px orange'
 h2.style.width = 'max-content'
 h2.style.rotate = '5deg'
 
+// loop through array returned by querySelectorAll
 const h2_List = document.querySelectorAll('h2')
 h2_List.forEach(el =>
 {
     el.style.backgroundColor = '#ddd'
 })
 
+// target paragraph
 let para = document.querySelector('p')
 para.style.columnCount = 2
 // innerText vs innerHTML vs textContent
@@ -53,3 +57,17 @@ console.log(ulLis)
 
 let ulLisArr = Array.from(ulLis)
 console.log(ulLisArr)
+
+// create element and add attributes
+const btn = document.createElement('button')
+btn.innerText = 'Click me!'
+btn.onclick = () => console.log('CLICKED')
+document.body.appendChild(btn)
+
+console.log(titleEl.hasAttribute('class'))
+console.log(titleEl.getAttribute('class'))
+
+// add element at same level (sibling)
+let test = document.createElement('h3')
+test.innerText = 'TEST'
+btn.insertAdjacentElement("beforebegin", test)
