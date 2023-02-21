@@ -9,7 +9,7 @@ mainEl.classList.add('flex-ctr')
 let topMenuEl = document.querySelector('#top-menu')
 
 topMenuEl.style.height = '100%'
-topMenuEl.style.backgroundColor = 'var(--top-menu-bg'
+topMenuEl.style.backgroundColor = 'var(--top-menu-bg)'
 topMenuEl.classList.add('flex-around')
 
 // Tasks 3.0 - 3.1
