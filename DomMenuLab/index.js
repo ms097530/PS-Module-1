@@ -14,7 +14,7 @@ topMenuEl.classList.add('flex-around')
 
 // Tasks 3.0 - 3.1
 // Menu data structure
-var menuLinks = [
+const menuLinks = [
     { text: 'about', href: '/about' },
     { text: 'catalog', href: '/catalog' },
     { text: 'orders', href: '/orders' },
