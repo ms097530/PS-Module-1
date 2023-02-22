@@ -14,12 +14,12 @@ topMenuEl.classList.add('flex-around')
 
 // Tasks 3.0 - 3.1
 // Menu data structure
-const menuLinks = [
+let menuLinks = [
     { text: 'about', href: '/about' },
     { text: 'catalog', href: '/catalog' },
     { text: 'orders', href: '/orders' },
     { text: 'account', href: '/account' },
-];
+]
 
 menuLinks.forEach(link =>
 {
@@ -28,3 +28,109 @@ menuLinks.forEach(link =>
     anchor.innerText = link.text
     topMenuEl.appendChild(anchor)
 })
+
+//Tasks 4.0 - 4.5
+let subMenuEl = document.getElementById('sub-menu')
+subMenuEl.style.height = '100%'
+subMenuEl.style.backgroundColor = 'var(--sub-menu-bg)'
+subMenuEl.classList.add('flex-around')
+subMenuEl.style.position = 'absolute'
+subMenuEl.style.top = 0
+
+// Tasks 5.0 - 5.8
+// 5.0
+menuLinks = [
+    { text: 'about', href: '/about' },
+    {
+        text: 'catalog', href: '#', subLinks: [
+            { text: 'all', href: '/catalog/all' },
+            { text: 'top selling', href: '/catalog/top' },
+            { text: 'search', href: '/catalog/search' },
+        ]
+    },
+    {
+        text: 'orders', href: '#', subLinks: [
+            { text: 'new', href: '/orders/new' },
+            { text: 'pending', href: '/orders/pending' },
+            { text: 'history', href: '/orders/history' },
+        ]
+    },
+    {
+        text: 'account', href: '#', subLinks: [
+            { text: 'profile', href: '/account/profile' },
+            { text: 'sign out', href: '/account/signout' },
+        ]
+    },
+]
+
+// 5.1
+let topMenuLinks = document.querySelectorAll('#top-menu > a')
+console.log(topMenuLinks)
+let showingSubMenu = false
+
+topMenuEl.addEventListener('click', (e) =>
+{
+    // 5.2
+    e.preventDefault()
+    if (e.target.tagName.toLowerCase() !== 'a')
+        return
+
+    console.log('Target of click:')
+    console.log(e.target)
+
+    // 5.3
+    if (e.target.classList.contains('active'))
+    {
+        e.target.classList.remove('active')
+        showingSubMenu = false
+        subMenuEl.style.top = 0
+        return
+    }
+
+    // 5.4
+    topMenuLinks.forEach(el =>
+    {
+        console.log(el)
+        el.classList.remove('active')
+    })
+
+    // 5.5
+    e.target.classList.add('active')
+
+    // 5.6
+    let text = e.target.textContent
+    let menuLink = menuLinks.find(link => text.toLowerCase() === link.text.toLowerCase())
+
+    if (menuLink.subLinks)
+    {
+        showingSubMenu = true
+    }
+    else
+    {
+        showingSubMenu = false
+    }
+
+    // 5.7
+    if (showingSubMenu)
+    {
+        buildSubMenu(menuLink.subLinks)
+        subMenuEl.style.top = '100%'
+    }
+    else
+    {
+        subMenuEl.style.top = 0
+    }
+})
+
+// 5.8
+function buildSubMenu(subLinksArr)
+{
+    subMenuEl.innerHTML = ''
+    subLinksArr.forEach(subLink =>
+    {
+        let anchor = document.createElement('a')
+        anchor.setAttribute('href', subLink.href)
+        anchor.textContent = subLink.text
+        subMenuEl.append(anchor)
+    })
+}
