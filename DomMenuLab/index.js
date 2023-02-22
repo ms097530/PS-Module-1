@@ -75,7 +75,7 @@ topMenuEl.addEventListener('click', (e) =>
     if (e.target.tagName.toLowerCase() !== 'a')
         return
 
-    console.log('Target of click:')
+    console.log('Main menu target of click:')
     console.log(e.target)
 
     // 5.3
@@ -134,3 +134,31 @@ function buildSubMenu(subLinksArr)
         subMenuEl.append(anchor)
     })
 }
+
+// 6.0 - 6.4
+subMenuEl.addEventListener('click', (e) =>
+{
+    // 6.0
+    e.preventDefault()
+    if (e.target.tagName.toLowerCase() !== 'a')
+        return
+
+    console.log('Submenu target of click:')
+    console.log(e.target)
+
+    // 6.1
+    showingSubMenu = false
+    subMenuEl.style.top = 0
+
+    // 6.2
+    topMenuLinks.forEach(el =>
+    {
+        console.log(el)
+        el.classList.remove('active')
+    })
+
+    // 6.3
+    mainEl.innerHTML = '<h1>' + e.target.textContent + '</h1>'
+
+    // 6.4 - verify contents of main element change when clicking submenu item
+})
