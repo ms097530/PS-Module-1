@@ -1,2 +1,5 @@
 *.png
 /total_recall
+test.*
+/Traversing-the-DOM
+/manipulate-the-dom

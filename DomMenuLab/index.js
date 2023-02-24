@@ -90,7 +90,7 @@ topMenuEl.addEventListener('click', (e) =>
     // 5.4
     topMenuLinks.forEach(el =>
     {
-        console.log(el)
+        // console.log(el)
         el.classList.remove('active')
     })
 
@@ -153,7 +153,7 @@ subMenuEl.addEventListener('click', (e) =>
     // 6.2
     topMenuLinks.forEach(el =>
     {
-        console.log(el)
+        // console.log(el)
         el.classList.remove('active')
     })
 
