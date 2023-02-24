@@ -20,26 +20,55 @@ class Ship
 
     retreat()
     {
-
+        this.hull = 0
+        console.log('... ran away')
     }
 }
 
-isGameOver = false
-isWin = false
+const PLAYER_COLOR = 'color: limegreen;'
+const NEUTRAL_COLOR = 'color: orange;'
+const ENEMY_COLOR = 'color: #F44;'
 
-let yourShip = new Ship(20, 5, 0.7)
-
+const NUM_ENEMIES = 6
 const ENEMY_VALUES = {
     hull: { min: 3, max: 6, round: true },
     firepower: { min: 2, max: 4, round: true },
     accuracy: { min: 0.6, max: 0.8, round: false }
 }
 
+// isGameOver = false
+// isWin = false
 
-let enemyShip = generateShip(ENEMY_VALUES)
-console.log(enemyShip)
+let yourShip = new Ship(20, 5, 0.7)
 
-startShipBattle(yourShip, enemyShip)
+const enemyShips = []
+
+for (let i = 0; i < NUM_ENEMIES; ++i)
+{
+    enemyShips.push(generateShip(ENEMY_VALUES))
+}
+
+console.log(enemyShips)
+
+
+
+for (let i = 0; i < enemyShips.length; ++i)
+{
+    while (yourShip.hull > 0 && enemyShips[i].hull > 0)
+    {
+        startShipBattle(yourShip, enemyShips[i])
+    }
+
+}
+console.log('battle ended')
+if (yourShip.hull > 0)
+{
+    console.log('YOU WIN!')
+}
+else
+{
+    console.log('You lose...')
+}
 
 function startShipBattle(shipOne, shipTwo)
 {
@@ -55,29 +84,44 @@ function startShipBattle(shipOne, shipTwo)
 
     if (command === '1')
     {
-        console.log('%cAttack the alien ship!', 'color: limegreen;')
+        console.log('%cAttack the alien ship!', PLAYER_COLOR)
         let didHit = shipOne.attack(shipTwo)
         if (didHit)
         {
-            console.log(`%cYou hit the mark! ${shipOne.firepower} damage!`, 'color: limegreen')
+            console.log(`%cYou hit the mark! ${shipOne.firepower} damage!`, PLAYER_COLOR)
         }
         else
         {
-            console.log(`%cMiss!`, 'color: orange;')
+            console.log(`%cMiss!`, NEUTRAL_COLOR)
         }
     }
     else
     {
-        console.log('%cRetreat... Game over...', 'color: #F44;')
-        shipOne.retreat()
+        console.log('%cRetreat... Game over...', ENEMY_COLOR)
+        return shipOne.retreat()
     }
 
+    if (shipTwo.hull > 0)
+    {
+        console.log('%cEnemy attacks you!', ENEMY_COLOR)
+        let didHit = shipTwo.attack(shipOne)
+        if (didHit)
+        {
+            console.log(`%cEnemy hit you! ${shipTwo.firepower} damage!`, ENEMY_COLOR)
+        }
+        else
+        {
+            console.log('%cMiss!', NEUTRAL_COLOR)
+        }
+    }
+
+    console.log(`Player HP: ${shipOne.hull}  Enemy HP: ${shipTwo.hull}`)
 }
 
 
 function generateShip(valuesObj)
 {
-    // const ENEMY_VALUES = {
+    // valuesObj = {
     //     hull: { min: 3, max: 6, round: true },
     //     firepower: { min: 2, max: 4, round: true },
     //     accuracy: { min: 0.6, max: 0.8, round: false }
