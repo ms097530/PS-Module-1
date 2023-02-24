@@ -1,0 +1,27 @@
+Space battle game
+
+Overall notes
+- 6 alien ships to fight
+- you attack first
+  x attacks go back and forth until one ship is defeated
+  - can choose to attack or retreat each turn
+- if you destroy a ship, you can attack OR retreat
+  - retreat is GAME OVER, but leaves opening for further development
+- win if defeat all 6 alien ships
+- lose if your ship is destroyed
+
+Ship notes
+- properties: hull, firepower, accuracy
+  - hull = HP - if hp hits 0 or less, ship is destroyed
+  - firepower = damage to opponent hull on attack
+  - accuracy - chance between 0 and 1 to land successful hit
+
+Player ship
+- hull = 20
+- firepower = 5
+accuracy = 0.7
+
+6 alien ships should have unique values
+- hull: between 3 and 6
+- firepower: between 2 and 4
+- accuracy: between .6 and .8
