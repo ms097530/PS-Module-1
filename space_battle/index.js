@@ -43,20 +43,45 @@ startShipBattle(yourShip, enemyShip)
 
 function startShipBattle(shipOne, shipTwo)
 {
+
     // shipOne goes first
     let command
     while (command !== '1' && command !== '2')
     {
         command = window.prompt(`Current HP: ${shipOne.hull}  Enemy HP: ${shipTwo.hull}\n1: Attack  2: Retreat`)
         console.log(command)
-        console.log(typeof command)
+        // console.log(typeof command)
     }
-    console.log('outside loop')
+
+    if (command === '1')
+    {
+        console.log('%cAttack the alien ship!', 'color: limegreen;')
+        let didHit = shipOne.attack(shipTwo)
+        if (didHit)
+        {
+            console.log(`%cYou hit the mark! ${shipOne.firepower} damage!`, 'color: limegreen')
+        }
+        else
+        {
+            console.log(`%cMiss!`, 'color: orange;')
+        }
+    }
+    else
+    {
+        console.log('%cRetreat... Game over...', 'color: #F44;')
+        shipOne.retreat()
+    }
+
 }
 
 
 function generateShip(valuesObj)
 {
+    // const ENEMY_VALUES = {
+    //     hull: { min: 3, max: 6, round: true },
+    //     firepower: { min: 2, max: 4, round: true },
+    //     accuracy: { min: 0.6, max: 0.8, round: false }
+    // }
     // loop through any number of desired parameters and generate values
     let parameters = []
     for (let val of Object.values(valuesObj))
@@ -65,8 +90,23 @@ function generateShip(valuesObj)
         let param
         if (val.round)
         {
+            // * EQUATION
+            // value between min and max = randomNum (from 0 to 1) * (max - min) + min
+            // * Explanation
+            // randomNum * (max - min) = number between 0 and (max - min ) -> 0 to difference in range of numbers
+            // add min to bring make sure number is at least min
+            // * DEMO
+            // randomNum = 0.5
+            // min = 3, max = 6
+            // value = 0.5 * (6 - 3)
+            // value = 1.5
+            // value + min = 1.5 + 3 = 4.5
+            // then use round to get an integer if desired
+            // let rand = Math.random()
+            // let difference = val.max - val.min
+            // let valInRange = (rand * difference) + val.min
+            // round if need be...
             param = Math.round(Math.random() * (val.max - val.min) + val.min)
-
         }
         else
         {
