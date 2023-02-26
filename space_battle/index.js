@@ -46,6 +46,8 @@ const ALIEN_SHIP_NAMES = {
 // ----------------------------------------------------------------------------------------------------------------------------
 // * MAIN CODE BODY
 // ----------------------------------------------------------------------------------------------------------------------------
+
+// declare player's ship without using factory function
 let yourShip = new Ship('USS Assembly', 20, 5, 0.7)
 
 // get as many ships as desired
@@ -149,6 +151,8 @@ function startShipBattle(shipOne, shipTwo, turnCounter)
 
 function generateShip(baseValuesObj)
 {
+    // * FACTORY FUNCTION
+    // used to make declaring an object in a certain way easier
     // * EXPECTS:
     // object with nested objects, each nested object contains min, max, and round properties
     // baseValuesObj = {
